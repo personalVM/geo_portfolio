@@ -41,18 +41,18 @@ services:
 #     networks:
 #       - dockernetw
 
-#   geoserver:
-#     container_name: geoserver
-#     build:
-#       context: ./geoserver
-#       dockerfile: geoserver.Dockerfile
-#     restart: unless-stopped
-#     ports:
-#       - "8080:8080"
-#     depends_on:
-#       - database
-#     networks:
-#       - dockernetw
+  geoserver:
+    container_name: geoserver
+    build:
+      context: ./geoserver
+      dockerfile: geoserver.Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    networks:
+      - dockernetw
 
 #   util:
 #     container_name: util
