@@ -28,18 +28,18 @@ services:
     networks:
       - dockernetw
 
-#   etl:
-#     container_name: etl
-#     build:
-#       context: ./etl
-#       dockerfile: etl.Dockerfile
-#     restart: on-failure
-#     depends_on:
-#       - database
-#     volumes:
-#       - ./etl/data:/data/
-#     networks:
-#       - dockernetw
+  etl:
+    container_name: etl
+    build:
+      context: ./etl
+      dockerfile: etl.Dockerfile
+    restart: on-failure
+    depends_on:
+      - database
+    volumes:
+      - ./etl/data:/data/
+    networks:
+      - dockernetw
 
   geoserver:
     container_name: geoserver
