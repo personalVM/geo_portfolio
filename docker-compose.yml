@@ -1,21 +1,21 @@
 services:
 
-  # frontend:
-  #   container_name: frontend
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: frontend.Dockerfile
-  #   restart: always
-  #   ports:
-  #     - "5000:5000"
-  #   volumes:
-  #     - ./frontend/:/app/
-  #   depends_on:
-  #     - geoserver
-  #     - database
-  #   command: npm start
-  #   networks:
-  #     - dockernetw
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: frontend.Dockerfile
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./frontend/:/app/
+    depends_on:
+      - geoserver
+      - database
+    command: npm start
+    networks:
+      - dockernetw
 
   database:
     container_name: database
@@ -25,19 +25,6 @@ services:
     restart: always
     ports:
       - "5432:5432"
-    networks:
-      - dockernetw
-
-  etl:
-    container_name: etl
-    build:
-      context: ./etl
-      dockerfile: etl.Dockerfile
-    restart: on-failure
-    depends_on:
-      - database
-    volumes:
-      - ./etl/data:/data/
     networks:
       - dockernetw
 
