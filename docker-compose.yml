@@ -67,6 +67,6 @@ services:
 #     networks:
 #       - dockernetw
 
-# networks:
-#   dockernetw:
-#     driver: bridge
+networks:
+  dockernetw:
+    driver: bridge
